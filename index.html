@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.2.1.js"></script>
+  <title>exercice2part4 JQ</title>
+</head>
+<body>
+  <p>Merci d'entrer vos 5 dernieres notes</p>
+  <form class="note" action="index.html" method="post">
+    <input class="note1" type="text" name="note1" value="" />
+    <input class="note2" type="text" name="note2" value="" />
+    <input class="note3" type="text" name="note3" value="" />
+    <input class="note4" type="text" name="note4" value="" />
+    <input class="note5" type="text" name="note5" value="" />
+  </form>
+  <input class="resultat" type="text" name="resultat" value="">
+  <button id="result" type="button" name="result">resultat</button>
+  <script>
+  $(function(){
+    $('#result').click(function(){
+      var result = $('input').val();
+      var note1 = $('.note1').val();
+      var note2 = $('.note2').val();
+      var note3 = $('.note3').val();
+      var note4 = $('.note4').val();
+      var note5 = $('.note5').val();
+      //parseInt transforme la valeur en chiffre
+      var moyenne = ((parseInt(note1))+(parseInt(note2))+(parseInt(note3))+(parseInt(note4))+(parseInt(note5)))/5;
+      if ((result<=20)&&(result>=0)){
+      if(isNaN(result)==false){
+      if(moyenne<=10){
+        alert (moyenne + ' En dessous de la moyenne')
+      }else if((moyenne>10)&&(moyenne<=13)){
+        alert (moyenne + ' Moyen');
+      }else if((moyenne>13)&&(moyenne<=16)){
+        alert (moyenne + ' Bien');
+      }else if((moyenne>16)&&(moyenne<20)){
+        alert (moyenne + ' Trés Bien');
+      }else if(moyenne=20){
+        alert (moyenne + ' EXCELLENT');
+      };
+    }else{
+      alert ('merci de saisir un chiffre entre 0 et 20');
+    };
+  }else{
+    alert ('vous ne pouvez pas avoir une note supérieure a 20 ou inférieure a 0');
+  };
+    });
+  });
+  </script>
+</body>
+</html>
